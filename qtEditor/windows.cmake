@@ -68,6 +68,9 @@ install(FILES ${OGRE_PLUGIN_DIR_DBG}/OgreMain_d.dll
     CONFIGURATIONS Debug)
 
 # Qt5 DLLs
+if(NOT DEFINED ENV{QTDIR})
+    message(FATAL_ERROR "Required environment variable QTDIR is not defined.")
+endif()
 file(TO_CMAKE_PATH $ENV{QTDIR} QTDIR) 
 set(QT_DLL_DIR "${QTDIR}/bin")
 set(QT_PLUGINS_DIR "${QTDIR}/plugins")
